@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('../fonts/roboto-mono-latin-500-normal.woff2') format('woff2'),
+        url('../fonts/roboto-mono-latin-500-normal.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('../fonts/roboto-mono-latin-700-normal.woff2') format('woff2'),
+        url('../fonts/roboto-mono-latin-700-normal.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+}
