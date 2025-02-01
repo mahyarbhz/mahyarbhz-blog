@@ -20,6 +20,79 @@
     font-display: swap;
 }
 
+@font-face {
+	font-family: 'Yekan Bakh FaNum';
+	font-style: normal;
+	font-weight: normal;
+	font-stretch: normal;
+	src: url('../fonts/YekanBakhFaNum-Regular.woff') format('woff'),   
+	url('../fonts/YekanBakhFaNum-Regular.woff2') format('woff2');		 
+}
+
+@font-face {
+	font-family: 'Yekan Bakh FaNum';
+	font-style: normal;
+	font-weight: bold;
+	font-stretch: normal;
+	src: url('../fonts/YekanBakhFaNum-Bold.woff') format('woff'),   
+	url('../fonts/YekanBakhFaNum-Bold.woff2') format('woff2'); 
+}
+
 body {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto Mono', 'Yekan Bakh FaNum', monospace, sans-serif;
+}
+
+.dir-rtl {
+    direction: rtl;
+}
+
+.dir-ltr {
+    direction: ltr;
+}
+
+.font-roboto {
+    font-family: 'Roboto Mono', 'Yekan Bakh FaNum', monospace, sans-serif;
+}
+
+.font-yekan {
+    font-family: 'Yekan Bakh FaNum', 'Roboto Mono', monospace, sans-serif;
+}
+
+.post-content > h1 {
+    @apply font-bold;
+    @apply text-3xl;
+    @apply mb-4;
+}
+
+.post-content > h2 {
+    @apply font-bold;
+    @apply text-2xl;
+    @apply mb-2;
+}
+
+.post-content > h3 {
+    @apply font-bold;
+    @apply text-xl;
+    @apply mb-2;
+}
+
+.post-content > p {
+    @apply mb-4;
+}
+
+.post-content > ul {
+    @apply mb-4;
+    list-style-type: circle;
+}
+
+.post-content > ul > li {
+    @apply mb-1;
+}
+
+.post-content > ol {
+    @apply mb-4;
+}
+
+.post-content > ol > li {
+    @apply mb-1;
 }
