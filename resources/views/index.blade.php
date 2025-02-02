@@ -70,7 +70,7 @@
                 <!-- Post Card -->
                 @foreach ($enPosts as $post)
                 <article class="border border-zinc-700 p-6 rounded-lg hover:border-emerald-400 transition-colors">
-                    <img src="{{ asset('storage/test.jpg') }}" alt="Post image" class="w-full h-40 object-cover rounded-lg mb-4">
+                    <img src="{{ asset($post->cover) }}" alt="Post image" class="w-full h-40 object-cover rounded-lg mb-4">
                     <time class="text-zinc-400 text-sm">{{ $post->getCreatedAtGregorianAttribute() }}</time>
                     <h3 class="text-xl font-bold mt-2 mb-3 hover:text-emerald-400 transition-colors">
                         <a href="{{ url()->query($post->lang . '/' . $post->slug) }}">{{ $post->title }}</a>
