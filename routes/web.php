@@ -3,6 +3,7 @@
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Http\Controllers\SitemapController;
 
 // Route::get('language/{locale}', function ($locale) {
 //     app()->setLocale($locale);
@@ -38,6 +39,8 @@ Route::get('/', function () {
 
     return view('index', ['latestPost' => $latestPost, 'enPosts' => $enPosts, 'faPosts' => $faPosts]);
 })->name('home');
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 
 
 // Route::get('/post-example', function () {

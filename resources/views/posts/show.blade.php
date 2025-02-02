@@ -44,7 +44,7 @@
             <img src="{{ asset($post->cover) }}" alt="Post cover" class="w-full h-96 object-cover rounded-lg">
 
             <!-- Post Content -->
-            <div class="post-content prose prose-invert max-w-none text-zinc-300">
+            <div class="post-content prose prose-invert max-w-none text-white">
                 {!! $post->content !!}
             </div>
 
