@@ -4,6 +4,7 @@ use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Http\Controllers\SitemapController;
+use Monolog\Handler\RotatingFileHandler;
 
 // Route::get('language/{locale}', function ($locale) {
 //     app()->setLocale($locale);
@@ -14,26 +15,31 @@ use App\Http\Controllers\SitemapController;
 Route::prefix('{locale}')
     ->middleware(SetLocale::class)
     ->group(function () {
-        Route::get('/{slug}', function ($locale, $slug) {
-            $supportedLocales = ['en', 'fa'];
-            if (!in_array($locale, $supportedLocales)) {
-                abort(404);
-            }
+        Route::prefix('/{category}')
+            ->group(function () {
+                Route::get('/{slug}', function ($locale, $category, $slug) {
+                    $supportedLocales = ['en', 'fa'];
+                    if (!in_array($locale, $supportedLocales)) {
+                        abort(404);
+                    }
 
-            $post = Post::where('lang', $locale)
-                ->where('slug', $slug)
-                ->firstOrFail();
+                    $post = Post::where('lang', $locale)
+                        ->where('category', $category)
+                        ->where('slug', $slug)
+                        ->firstOrFail();
 
-            return view('posts.show', ['post' => $post]);
-        })->name('posts.show');
+                    return view('posts.show', ['post' => $post]);
+                })->name('posts.show');
+            });
     });
+    
 
 
 Route::get('/', function () {
-    $enPosts = Post::select(['slug', 'title', 'excerpt', 'cover', 'lang', 'created_at'])->where('lang', 'en')
-    ->get();
-    $faPosts = Post::select(['slug', 'title', 'excerpt', 'cover', 'lang', 'created_at'])->where('lang', 'fa')
-    ->get();
+    $enPosts = Post::select(['slug', 'title', 'category', 'excerpt', 'cover', 'lang', 'created_at'])->where('lang', 'en')
+        ->get();
+    $faPosts = Post::select(['slug', 'title', 'category', 'excerpt', 'cover', 'lang', 'created_at'])->where('lang', 'fa')
+        ->get();
 
     $latestPost = Post::select(['slug', 'title', 'excerpt', 'cover', 'lang', 'created_at'])->latest('created_at')->first();
 

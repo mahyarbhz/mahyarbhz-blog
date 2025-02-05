@@ -5,26 +5,27 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover">
-    <title>@yield('title', 'Blog') | Mahyar Behzadi</title>
+    <title>@yield('title', 'Mahyar Behzadi’s Tech & Engineering Blog') | Mahyar Behzadi</title>
 
     <!-- Primary Meta Tags -->
-    <meta name="description" content="@yield('meta_description', 'A simple personal blog.')">
-    <meta name="keywords" content="@yield('meta_keywords', 'blog, mahyarbhz, weblog, electical engineering, programming, devops')">
+    <meta name="description" content="@yield('meta_description', 'Explore insights on electrical engineering, programming, devops, and entrepreneurship by Mahyar Behzadi.')">
+    <meta name="keywords" content="@yield('meta_keywords', 'blog, Mahyar Behzadi, electrical engineering, programming, devops, entrepreneurship')">
     <meta name="author" content="@yield('meta_author', 'Mahyar Behzadi')">
     <meta name="robots" content="@yield('meta_robots', 'index, follow')">
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="@yield('og_title', 'Mahyar Behzadi')" />
-    <meta property="og:description" content="@yield('og_description', 'A simple personal blog.')" />
+    <meta property="og:title" content="@yield('og_title', 'Mahyar Behzadi’s Tech & Engineering Blog')" />
+    <meta property="og:description" content="@yield('og_description', 'This is where I\'m sharing what I learn about tech and electrics!')" />
     <meta property="og:image" content="@yield('og_image', asset('images/default.png'))" />
     <meta property="og:url" content="@yield('og_url', url()->current())" />
     <meta property="og:type" content="@yield('og_type', 'website')" />
 
     <!-- Twitter -->
-    <meta name="twitter:title" content="@yield('twitter_title', 'Mahyar Behzadi')">
-    <meta name="twitter:description" content="@yield('twitter_description', 'A simple personal blog.')">
+    <meta name="twitter:title" content="@yield('twitter_title', 'Mahyar Behzadi’s Tech & Engineering Blog')">
+    <meta name="twitter:description" content="@yield('twitter_description', 'This is where I\'m sharing what I learn about tech and electrics!')" />
     <meta name="twitter:image" content="@yield('twitter_image', asset('images/default.png'))">
     <meta name="twitter:card" content="@yield('twitter_card', 'summary_large_image')">
+
 
     <!-- Additional meta tags ... -->
 

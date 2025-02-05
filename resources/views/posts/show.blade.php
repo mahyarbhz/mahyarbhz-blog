@@ -4,7 +4,7 @@
 @section('lang', $post->lang)
 @section('title', "Post")
 @section('meta_description', $post->excerpt ?? Str::limit($post->content, 160))
-@section('meta_keywords', $post->tags ?? 'Laravel, Blog')
+@section('meta_keywords', $post->tags ?? 'DevOps, Electrical Engineering, Programming')
 @section('meta_author', $post->isEnglish() ? 'Mahyar Behzadi' : 'مهیار بهزادی')
 @section('meta_robots', 'index, follow')
 
@@ -28,10 +28,10 @@
             <header class="space-y-6">
                 @if ($post->isEnglish())
                     <a href="{{ route('home') }}" class="text-emerald-400 hover:text-emerald-300 transition-colors">&larr; Back to Blog</a>
-                    <time class="block text-zinc-400 text-sm">{{ $post->getCreatedAtGregorianAttribute() }}</time>
+                    <time class="block text-zinc-400 text-sm">{{ $post->getCreatedAtGregorian() }}</time>
                 @else
                     <a href="{{ route('home') }}" class="text-emerald-400 hover:text-emerald-300 transition-colors">&rarr; بازگشت</a>
-                    <time class="block text-zinc-400 text-sm">{{ $post->getCreatedAtJalaliAttribute() }}</time>
+                    <time class="block text-zinc-400 text-sm">{{ $post->getCreatedAtJalali() }}</time>
                 @endif
                 <h1 class="text-4xl font-bold">{{ $post->title }}</h1>
                 {{-- <div class="flex space-x-3">

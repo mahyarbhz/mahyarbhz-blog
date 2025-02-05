@@ -90,6 +90,7 @@ EOT;
         ]);
         DB::table('posts')->insert([
             'slug' => 'test',
+            'category' => 'test',
             'title' => 'Test',
             'lang' => 'en',
             'excerpt' => 'Of course, manually specifying the attributes for each model seed is cumbersome...',
@@ -115,6 +116,7 @@ EOT;
         ]);
         DB::table('posts')->insert([
             'slug' => 'test',
+            'category' => 'test',
             'title' => 'نوشته',
             'lang' => 'fa',
             'excerpt' => 'نوشته های بسیار جالب همچون سبزه بر درختان می‌رویند...',

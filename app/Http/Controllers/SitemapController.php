@@ -26,7 +26,7 @@ class SitemapController extends Controller
         $posts = Post::all();
         foreach ($posts as $post) {
             $urls[] = [
-                'loc' => URL::to('/'. $post->lang . '/' . $post->slug),
+                'loc' => URL::to('/'. $post->getSlug()),
                 'lastmod' => $post->updated_at->toAtomString(),
                 'changefreq' => 'weekly',
                 'priority' => '0.9'

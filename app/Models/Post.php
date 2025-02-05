@@ -13,23 +13,26 @@ class Post extends Model
         'slug',
         'title',
         'lang',
+        'category',
         'excerpt',
         'tags',
         'cover',
         'content',
     ];
 
-    public function getCreatedAtGregorianAttribute()
-    {
+    public function getCreatedAtGregorian() : string {
         return $this->created_at->format('Y-m-d');
     }
 
-    public function getCreatedAtJalaliAttribute()
-    {
+    public function getCreatedAtJalali() : string {
         return Jalalian::fromCarbon($this->created_at)->format('Y-m-d');
     }
 
     public function isEnglish() : bool {
         return $this->lang == 'en';
+    }
+
+    public function getSlug() : string {
+        return $this->lang . '/' . $this->category . '/' . $this->slug;
     }
 }

@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('slug');
             $table->string('title');
             $table->string('lang');
+            $table->string('category');
             $table->string('excerpt');
-            $table->string('tags');
+            $table->string('tags')->nullable();
             $table->string('cover');
             $table->longText('content');
             $table->timestamps();
