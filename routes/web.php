@@ -41,7 +41,7 @@ Route::get('/', function () {
     $faPosts = Post::select(['slug', 'title', 'category', 'excerpt', 'cover', 'lang', 'created_at'])->where('lang', 'fa')
         ->get();
 
-    $latestPost = Post::select(['slug', 'title', 'excerpt', 'cover', 'lang', 'created_at'])->latest('created_at')->first();
+    $latestPost = Post::select(['slug', 'title', 'category', 'excerpt', 'cover', 'lang', 'created_at'])->latest('created_at')->first();
 
     return view('index', ['latestPost' => $latestPost, 'enPosts' => $enPosts, 'faPosts' => $faPosts]);
 })->name('home');
