@@ -26,11 +26,11 @@
             <p>While exploring the synergy of code and circuits.</p>
         </div>
         <!-- Featured Post -->
-        @if (count($enPosts) == 0)
+        @if (!$latestPost)
             No featured post found!
         @else
             <article class="mb-16 {{ $latestPost->isEnglish() ? 'dir-ltr font-roboto' : 'dir-rtl font-yekan' }}">
-                <img src="{{ asset($latestPost->cover) }}" alt="Featured post"
+                <img loading="lazy" src="{{ asset($latestPost->cover) }}" alt="{{ $latestPost->title }}"
                     class="w-full h-64 object-cover rounded-lg mb-6">
                 <div class="space-y-4">
                     <time
@@ -51,7 +51,7 @@
                 <!-- Post Card -->
                 @foreach ($faPosts as $post)
                     <article class="border border-zinc-700 p-6 rounded-lg hover:border-emerald-400 transition-colors">
-                        <img src="{{ asset($post->cover) }}" alt="Post image"
+                        <img loading="lazy" src="{{ asset($post->cover) }}" alt="{{ $post->title }}"
                             class="w-full h-40 object-cover rounded-lg mb-4">
                         <time class="text-zinc-400 text-sm">{{ $post->getCreatedAtJalali() }}</time>
                         <h3 class="text-xl font-bold mt-2 mb-3 hover:text-emerald-400 transition-colors">
@@ -73,7 +73,7 @@
                 <!-- Post Card -->
                 @foreach ($enPosts as $post)
                     <article class="border border-zinc-700 p-6 rounded-lg hover:border-emerald-400 transition-colors">
-                        <img src="{{ asset($post->cover) }}" alt="Post image"
+                        <img loading="lazy" src="{{ asset($post->cover) }}" alt="{{ $post->title }}"
                             class="w-full h-40 object-cover rounded-lg mb-4">
                         <time class="text-zinc-400 text-sm">{{ $post->getCreatedAtGregorian() }}</time>
                         <h3 class="text-xl font-bold mt-2 mb-3 hover:text-emerald-400 transition-colors">

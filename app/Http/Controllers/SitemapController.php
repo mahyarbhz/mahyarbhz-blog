@@ -23,7 +23,7 @@ class SitemapController extends Controller
         ];
 
         // Add dynamic URLs from the 'posts' table
-        $posts = Post::all();
+        $posts = Post::where(["published" => true])->get();
         foreach ($posts as $post) {
             $urls[] = [
                 'loc' => URL::to('/'. $post->getSlug()),
