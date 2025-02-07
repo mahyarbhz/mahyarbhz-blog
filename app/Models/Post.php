@@ -18,6 +18,7 @@ class Post extends Model
         'tags',
         'cover',
         'content',
+        'published'
     ];
 
     public function getCreatedAtGregorian() : string {

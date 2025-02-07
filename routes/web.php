@@ -26,22 +26,30 @@ Route::prefix('{locale}')
                     $post = Post::where('lang', $locale)
                         ->where('category', $category)
                         ->where('slug', $slug)
+                        ->where('published', true)
                         ->firstOrFail();
 
                     return view('posts.show', ['post' => $post]);
                 })->name('posts.show');
             });
     });
-    
+
 
 
 Route::get('/', function () {
-    $enPosts = Post::select(['slug', 'title', 'category', 'excerpt', 'cover', 'lang', 'created_at'])->where('lang', 'en')
+    $enPosts = Post::select(['slug', 'title', 'category', 'excerpt', 'cover', 'lang', 'created_at'])
+        ->where('lang', 'en')
+        ->where('published', true)
         ->get();
-    $faPosts = Post::select(['slug', 'title', 'category', 'excerpt', 'cover', 'lang', 'created_at'])->where('lang', 'fa')
+    $faPosts = Post::select(['slug', 'title', 'category', 'excerpt', 'cover', 'lang', 'created_at'])
+        ->where('lang', 'fa')
+        ->where('published', true)
         ->get();
 
-    $latestPost = Post::select(['slug', 'title', 'category', 'excerpt', 'cover', 'lang', 'created_at'])->latest('created_at')->first();
+    $latestPost = Post::select(['slug', 'title', 'category', 'excerpt', 'cover', 'lang', 'created_at'])
+        ->where('published', true)
+        ->latest('created_at')
+        ->first();
 
     return view('index', ['latestPost' => $latestPost, 'enPosts' => $enPosts, 'faPosts' => $faPosts]);
 })->name('home');

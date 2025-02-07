@@ -61,6 +61,7 @@ class ImportPosts extends Command
                         'tags'       => $frontMatter['tags'] ? implode(',', (array)$frontMatter['tags']) : null,
                         'cover'      => $frontMatter['cover'] ?? null,
                         'content'    => $htmlContent,
+                        'published'  => $frontMatter['published'] ?? false,
                         // These values might get overwritten by Eloquent:
                         'created_at' => Carbon::parse($frontMatter['date'], config('app.timezone'))->toDateTimeString(),
                         'updated_at' => now(),

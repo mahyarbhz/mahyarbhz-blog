@@ -26,16 +26,22 @@
             <p>While exploring the synergy of code and circuits.</p>
         </div>
         <!-- Featured Post -->
-        <article class="mb-16 {{ $latestPost->isEnglish() ? 'dir-ltr font-roboto' : 'dir-rtl font-yekan' }}">
-            <img src="{{ asset($latestPost->cover) }}" alt="Featured post" class="w-full h-64 object-cover rounded-lg mb-6">
-            <div class="space-y-4">
-                <time class="text-zinc-400 text-sm">{{ $latestPost->isEnglish() ? $latestPost->getCreatedAtGregorian() : $latestPost->getCreatedAtJalali() }}</time>
-                <h2 class="text-3xl font-bold hover:text-emerald-400 transition-colors">
-                    <a href="{{ url()->query($latestPost->getSlug()) }}">{{ $latestPost->title }}</a>
-                </h2>
-                <p class="text-zinc-400 leading-relaxed">{{ $latestPost->excerpt }}</p>
-            </div>
-        </article>
+        @if (count($enPosts) == 0)
+            No featured post found!
+        @else
+            <article class="mb-16 {{ $latestPost->isEnglish() ? 'dir-ltr font-roboto' : 'dir-rtl font-yekan' }}">
+                <img src="{{ asset($latestPost->cover) }}" alt="Featured post"
+                    class="w-full h-64 object-cover rounded-lg mb-6">
+                <div class="space-y-4">
+                    <time
+                        class="text-zinc-400 text-sm">{{ $latestPost->isEnglish() ? $latestPost->getCreatedAtGregorian() : $latestPost->getCreatedAtJalali() }}</time>
+                    <h2 class="text-3xl font-bold hover:text-emerald-400 transition-colors">
+                        <a href="{{ url()->query($latestPost->getSlug()) }}">{{ $latestPost->title }}</a>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed">{{ $latestPost->excerpt }}</p>
+                </div>
+            </article>
+        @endif
 
 
         <!-- Posts Grid -->
@@ -44,17 +50,18 @@
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Post Card -->
                 @foreach ($faPosts as $post)
-                <article class="border border-zinc-700 p-6 rounded-lg hover:border-emerald-400 transition-colors">
-                    <img src="{{ asset($post->cover) }}" alt="Post image" class="w-full h-40 object-cover rounded-lg mb-4">
-                    <time class="text-zinc-400 text-sm">{{ $post->getCreatedAtJalali() }}</time>
-                    <h3 class="text-xl font-bold mt-2 mb-3 hover:text-emerald-400 transition-colors">
-                        <a href="{{ url()->query($post->getSlug()) }}">{{ $post->title }}</a>
-                    </h3>
-                    <p class="text-zinc-400 line-clamp-3">{{ $post->excerpt }}</p>
-                </article>
+                    <article class="border border-zinc-700 p-6 rounded-lg hover:border-emerald-400 transition-colors">
+                        <img src="{{ asset($post->cover) }}" alt="Post image"
+                            class="w-full h-40 object-cover rounded-lg mb-4">
+                        <time class="text-zinc-400 text-sm">{{ $post->getCreatedAtJalali() }}</time>
+                        <h3 class="text-xl font-bold mt-2 mb-3 hover:text-emerald-400 transition-colors">
+                            <a href="{{ url()->query($post->getSlug()) }}">{{ $post->title }}</a>
+                        </h3>
+                        <p class="text-zinc-400 line-clamp-3">{{ $post->excerpt }}</p>
+                    </article>
                 @endforeach
-                @if(count($faPosts) == 0)
-                نوشته‌ای پیدا نشد!
+                @if (count($faPosts) == 0)
+                    نوشته‌ای پیدا نشد!
                 @endif
             </div>
         </div>
@@ -65,17 +72,18 @@
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Post Card -->
                 @foreach ($enPosts as $post)
-                <article class="border border-zinc-700 p-6 rounded-lg hover:border-emerald-400 transition-colors">
-                    <img src="{{ asset($post->cover) }}" alt="Post image" class="w-full h-40 object-cover rounded-lg mb-4">
-                    <time class="text-zinc-400 text-sm">{{ $post->getCreatedAtGregorian() }}</time>
-                    <h3 class="text-xl font-bold mt-2 mb-3 hover:text-emerald-400 transition-colors">
-                        <a href="{{ url()->query($post->getSlug()) }}">{{ $post->title }}</a>
-                    </h3>
-                    <p class="text-zinc-400 line-clamp-3">{{ $post->excerpt }}</p>
-                </article>
+                    <article class="border border-zinc-700 p-6 rounded-lg hover:border-emerald-400 transition-colors">
+                        <img src="{{ asset($post->cover) }}" alt="Post image"
+                            class="w-full h-40 object-cover rounded-lg mb-4">
+                        <time class="text-zinc-400 text-sm">{{ $post->getCreatedAtGregorian() }}</time>
+                        <h3 class="text-xl font-bold mt-2 mb-3 hover:text-emerald-400 transition-colors">
+                            <a href="{{ url()->query($post->getSlug()) }}">{{ $post->title }}</a>
+                        </h3>
+                        <p class="text-zinc-400 line-clamp-3">{{ $post->excerpt }}</p>
+                    </article>
                 @endforeach
-                @if(count($enPosts) == 0)
-                No posts found!
+                @if (count($enPosts) == 0)
+                    No posts found!
                 @endif
             </div>
         </div>

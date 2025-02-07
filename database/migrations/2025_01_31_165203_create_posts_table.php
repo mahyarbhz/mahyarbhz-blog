@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('tags')->nullable();
             $table->string('cover');
             $table->longText('content');
+            $table->boolean('published');
             $table->timestamps();
         });
     }
