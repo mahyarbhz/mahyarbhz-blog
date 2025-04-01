@@ -37,7 +37,7 @@
                     <time class="text-zinc-400 text-sm" itemprop="datePublished">
                         {{ $latestPost->isEnglish() ? $latestPost->getCreatedAtGregorian() : $latestPost->getCreatedAtJalali() }}
                     </time>
-                    <h2 class="text-3xl font-bold hover:text-emerald-400 transition-colors" itemprop="headline">
+                    <h2 class="text-3xl font-bold hover:text-accent transition-colors" itemprop="headline">
                         <a href="{{ url()->query($latestPost->getSlug()) }}" itemprop="url">{{ $latestPost->title }}</a>
                     </h2>
                     <p class="text-zinc-400 leading-relaxed" itemprop="description">
@@ -52,14 +52,15 @@
             <h1 class="mb-4 text-2xl font-bold">نوشته‌های فارسی من</h1>
             <div class="grid md:grid-cols-2 gap-8">
                 @foreach ($faPosts as $post)
-                    <article class="border border-zinc-700 p-6 rounded-lg hover:border-emerald-400 transition-colors"
+                    <article class="border border-zinc-700 p-6 rounded-lg hover:border-accent transition-colors"
                         itemscope itemtype="https://schema.org/BlogPosting">
                         <img loading="lazy" src="{{ asset($post->cover) }}" alt="{{ $post->title }}"
                             class="w-full h-40 object-cover rounded-lg mb-4" itemprop="image">
                         <time class="text-zinc-400 text-sm" itemprop="datePublished">
                             {{ $post->getCreatedAtJalali() }}
                         </time>
-                        <h3 class="text-xl font-bold mt-2 mb-3 hover:text-emerald-400 transition-colors"
+                        {{-- <h3 class="text-xl font-bold mt-2 mb-3 hover:text-emerald-400 transition-colors" --}}
+                        <h3 class="text-xl font-bold mt-2 mb-3 hover:text-accent transition-colors"
                             itemprop="headline">
                             <a href="{{ url()->query($post->getSlug()) }}" itemprop="url">{{ $post->title }}</a>
                         </h3>
@@ -79,14 +80,14 @@
             <h1 class="mb-4 text-2xl font-bold">My english blog posts</h1>
             <div class="grid md:grid-cols-2 gap-8">
                 @foreach ($enPosts as $post)
-                    <article class="border border-zinc-700 p-6 rounded-lg hover:border-emerald-400 transition-colors"
+                    <article class="border border-zinc-700 p-6 rounded-lg hover:border-accent transition-colors"
                         itemscope itemtype="https://schema.org/BlogPosting">
                         <img loading="lazy" src="{{ asset($post->cover) }}" alt="{{ $post->title }}"
                             class="w-full h-40 object-cover rounded-lg mb-4" itemprop="image">
                         <time class="text-zinc-400 text-sm" itemprop="datePublished">
                             {{ $post->getCreatedAtGregorian() }}
                         </time>
-                        <h3 class="text-xl font-bold mt-2 mb-3 hover:text-emerald-400 transition-colors"
+                        <h3 class="text-xl font-bold mt-2 mb-3 hover:text-accent transition-colors"
                             itemprop="headline">
                             <a href="{{ url()->query($post->getSlug()) }}" itemprop="url">{{ $post->title }}</a>
                         </h3>

@@ -8,4 +8,12 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    // css: {
+    //     postcss: {
+    //         plugins: [
+    //             require('autoprefixer'),
+    //             require('postcss-nested'),
+    //         ],
+    //     },
+    // },
 });

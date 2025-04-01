@@ -23,7 +23,7 @@
 
 @section('content')
     <main class="max-w-3xl mx-auto px-6 py-12">
-        <article class="text-white space-y-8 {{ $post->isEnglish() ? 'font-roboto' : 'font-yekan' }}" itemscope
+        <article class="text-text space-y-8 {{ $post->isEnglish() ? 'font-roboto' : 'font-yekan' }}" itemscope
             itemtype="https://schema.org/BlogPosting">
             <!-- Indicates the main URL for this blog post -->
             <meta itemprop="mainEntityOfPage" content="{{ url()->current() }}">
@@ -31,14 +31,14 @@
             <!-- Post Header -->
             <header class="space-y-6">
                 @if ($post->isEnglish())
-                    <a href="{{ route('home') }}" class="text-emerald-400 hover:text-emerald-300 transition-colors">&larr;
+                    <a href="{{ route('home') }}" class="text-accent hover:text-accent transition-colors">&larr;
                         Back to Blog</a>
                     <time class="block text-zinc-400 text-sm" itemprop="datePublished"
                         datetime="{{ $post->getCreatedAtGregorian() }}">
                         {{ $post->getCreatedAtGregorian() }}
                     </time>
                 @else
-                    <a href="{{ route('home') }}" class="text-emerald-400 hover:text-emerald-300 transition-colors">&rarr;
+                    <a href="{{ route('home') }}" class="text-accent hover:text-accent transition-colors">&rarr;
                         بازگشت</a>
                     <time class="block text-zinc-400 text-sm" itemprop="datePublished"
                         datetime="{{ $post->getCreatedAtJalali() }}">
@@ -53,7 +53,7 @@
                 itemprop="image">
 
             <!-- Post Content -->
-            <div class="post-content prose prose-invert max-w-none text-white" itemprop="articleBody">
+            <div class="post-content prose prose-invert max-w-none text-text" itemprop="articleBody">
                 {!! $post->content !!}
             </div>
 

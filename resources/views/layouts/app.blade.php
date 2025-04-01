@@ -4,8 +4,30 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport"
+        content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover">
     <title>@yield('title', 'Mahyar Behzadi’s Tech & Engineering Blog') | Mahyar Behzadi</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('storage/favicon/favicon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('storage/favicon/favicon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('storage/favicon/favicon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('storage/favicon/favicon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('storage/favicon/favicon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('storage/favicon/favicon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('storage/favicon/favicon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('storage/favicon/favicon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('storage/favicon/favicon-180x180.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('storage/favicon/favicon-16x16.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('storage/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('storage/favicon/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon/favicon-192x192.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/favicon/favicon.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('storage/favicon/favicon.ico') }}">
+    {{-- <meta name="msapplication-TileColor" content="#ffffff"> --}}
+    {{-- <meta name="msapplication-TileImage" content="{{ asset('favicon/favicon-144x144.png') }}"> --}}
+    {{-- <meta name="msapplication-config" content="{{ asset('favicon/browserconfig.xml') }}"> --}}
+    {{-- <link rel="manifest" href="{{ asset('favicon/manifest.json') }}"> --}}
+    {{-- <meta name="theme-color" content="#ffffff"> --}}
 
     <!-- Primary Meta Tags -->
     <meta name="description" content="@yield('meta_description', 'Explore insights on electrical engineering, programming, devops, and entrepreneurship by Mahyar Behzadi.')">
@@ -32,14 +54,16 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-zinc-900 text-zinc-100 min-h-screen" dir=@yield('dir', 'ltr')>
+{{-- <body class="bg-zinc-900 text-zinc-100 min-h-screen" dir=@yield('dir', 'ltr')> --}}
+<body class="bg-background-dark text-text min-h-screen" dir=@yield('dir', 'ltr')>
     <!-- Navigation -->
-    <nav class="px-6 py-4 border-b border-zinc-700 sticky top-0 bg-zinc-900/80 backdrop-blur dir-ltr">
+    <nav class="px-6 py-4 border-b border-zinc-700 sticky top-0 bg-background-dark/80 backdrop-blur dir-ltr">
         <div class="max-w-4xl mx-auto flex justify-between items-center">
-            <a href="{{ route('home') }}" class="text-xl font-bold hover:text-emerald-400 transition-colors">Mahyar's Blog</a>
+            <a href="{{ route('home') }}" class="text-xl font-bold hover:text-accent transition-colors">Mahyar's
+                Blog</a>
             <div class="hidden sm:flex space-x-6">
                 {{-- <a href="#" class="hover:text-emerald-400 transition-colors">About</a> --}}
-                <button disabled="disabled" class="hover:text-emerald-400 transition-colors">English</button>
+                <button disabled="disabled" class="hover:text-accent transition-colors">DevOps</button>
                 {{-- <a href="{{ url('/language/fa') }}" class="hover:text-emerald-400 transition-colors">فارسی</a> --}}
             </div>
         </div>
